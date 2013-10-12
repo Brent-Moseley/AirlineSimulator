@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>From:</b>
+  <%= @leg.from %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%= @leg.to %>
+</p>
+
+<p>
+  <b>Leaves:</b>
+  <%= @leg.leaves %>
+</p>
+
+<p>
+  <b>Arrives:</b>
+  <%= @leg.arrives %>
+</p>
+
+<p>
+  <b>Full:</b>
+  <%= @leg.full %>
+</p>
+
+<p>
+  <b>Next:</b>
+  <%= @leg.next %>
+</p>
+
+<p>
+  <b>Prev:</b>
+  <%= @leg.prev %>
+</p>
+
+
+<%= link_to 'Edit', edit_leg_path(@leg) %> |
+<%= link_to 'Back', legs_path %>

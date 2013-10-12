@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: planes
+#
+#  id               :integer          not null, primary key
+#  type             :string(255)
+#  in_service_since :integer
+#  last_service     :date
+#  seats            :integer
+#  luxury           :boolean
+#  incidents        :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  in_service_since: 1
+  last_service: 2013-09-20
+  seats: 1
+  luxury: 
+  incidents: 1
+
+two:
+  type: 
+  in_service_since: 1
+  last_service: 2013-09-20
+  seats: 1
+  luxury: 
+  incidents: 1

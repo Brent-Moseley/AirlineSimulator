@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @airlin.name %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%= @airlin.balance %>
+</p>
+
+
+<%= link_to 'Edit', edit_airlin_path(@airlin) %> |
+<%= link_to 'Back', airlins_path %>

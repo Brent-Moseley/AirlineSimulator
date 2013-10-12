@@ -1,0 +1,35 @@
+<h1>Listing legs</h1>
+
+<table>
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Leaves</th>
+    <th>Arrives</th>
+    <th>Full</th>
+    <th>Next</th>
+    <th>Prev</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @legs.each do |leg| %>
+  <tr>
+    <td><%= leg.from %></td>
+    <td><%= leg.to %></td>
+    <td><%= leg.leaves %></td>
+    <td><%= leg.arrives %></td>
+    <td><%= leg.full %></td>
+    <td><%= leg.next %></td>
+    <td><%= leg.prev %></td>
+    <td><%= link_to 'Show', leg %></td>
+    <td><%= link_to 'Edit', edit_leg_path(leg) %></td>
+    <td><%= link_to 'Destroy', leg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Leg', new_leg_path %>

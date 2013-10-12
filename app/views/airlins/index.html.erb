@@ -1,0 +1,25 @@
+<h1>Listing airlins</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Balance</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @airlins.each do |airlin| %>
+  <tr>
+    <td><%= airlin.name %></td>
+    <td><%= airlin.balance %></td>
+    <td><%= link_to 'Show', airlin %></td>
+    <td><%= link_to 'Edit', edit_airlin_path(airlin) %></td>
+    <td><%= link_to 'Destroy', airlin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Airlin', new_airlin_path %>
