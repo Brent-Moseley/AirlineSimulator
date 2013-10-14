@@ -1,5 +1,14 @@
 
 #nav_container
-	%h1
+	// = link_to "text", "#"
+	= link_to image_tag("airline2.jpg", size: "100x100", alt: "Airline Icon", id: "first_icon", class: "nav_icon"), "http://yahoo.com"
+	= link_to image_tag("airport.jpg", size: "100x100", alt: "Airport Icon", class: "nav_icon"), "http://yahoo.com"
+	= link_to image_tag("livemap.jpg", size: "100x100", alt: "Edit Entry", class: "nav_icon"), "http://yahoo.com"
+	//%br
+	.nav_icon_label
+		Airlines  
+	.nav_icon_label
+		Airports  
+	.nav_icon_label
+		Real Time Map  
 	
-	Flights
