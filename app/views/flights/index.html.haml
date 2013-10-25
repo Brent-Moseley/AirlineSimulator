@@ -1,14 +1,53 @@
+#main_container
+   #nav_container
+      // = link_to "text", "#"
+      = link_to image_tag("airline2.jpg", size: "100x100", alt: "Airline Icon", id: "first_icon", class: "nav_icon"), "http://yahoo.com"
+      = link_to image_tag("airport.jpg", size: "100x100", alt: "Airport Icon", class: "nav_icon"), "http://yahoo.com"
+      = link_to image_tag("livemap.jpg", size: "100x100", alt: "Edit Entry", class: "nav_icon"), "http://yahoo.com"
+      //%br
+      .nav_icon_label
+         Airlines  
+      .nav_icon_label
+         Airports  
+      .nav_icon_label
+         Real Time Map  
 
-#nav_container
-	// = link_to "text", "#"
-	= link_to image_tag("airline2.jpg", size: "100x100", alt: "Airline Icon", id: "first_icon", class: "nav_icon"), "http://yahoo.com"
-	= link_to image_tag("airport.jpg", size: "100x100", alt: "Airport Icon", class: "nav_icon"), "http://yahoo.com"
-	= link_to image_tag("livemap.jpg", size: "100x100", alt: "Edit Entry", class: "nav_icon"), "http://yahoo.com"
-	//%br
-	.nav_icon_label
-		Airlines  
-	.nav_icon_label
-		Airports  
-	.nav_icon_label
-		Real Time Map  
-	
+   %br
+   %h1
+      Flights
+   
+   %table{class: "table table-striped"}
+      %thead
+         %tr
+            %th
+               From
+            %th
+               To
+            %th
+               Leaves
+            %th
+               Arrives
+            %th
+               Full?
+            %th
+               Price
+      %tbody
+      - @flights.each do |flight|
+         %tr{"data-toggle" => "collapse", "data-target" => ".legs#{flight.id}"}
+            %td=flight.from
+            %td=flight.to
+            %td=flight.leaves.strftime('%b %e, %l:%M %p')
+            %td=flight.arrives.strftime('%b %e, %l:%M %p')
+            %td=flight.full
+            %td
+               $125.00
+            / Just do a modal for the list of legs on each flight
+            / -flight.legs.each do |leg|
+            /    %tr{:class => "legs#{flight.id} collapse in leg_row"}
+            /       %td=leg.from
+            /       %td=leg.to
+            /       %td=leg.full
+
+
+
+

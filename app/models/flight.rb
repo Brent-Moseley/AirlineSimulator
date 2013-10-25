@@ -13,7 +13,7 @@
 #
 
 class Flight < ActiveRecord::Base
-  attr_accessible :arrives, :from, :full, :leaves, :to
+  attr_accessible :arrives, :from, :full, :leaves, :to, :airlin_id
   has_many :legs
   belongs_to :airlin
 end

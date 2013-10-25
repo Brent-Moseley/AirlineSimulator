@@ -11,15 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925215616) do
+ActiveRecord::Schema.define(:version => 20131023131150) do
 
   create_table "airlins", :force => true do |t|
     t.string   "name"
     t.integer  "balance"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "plane_id"
-    t.integer  "flight_id"
+    t.integer  "airport_id"
   end
 
   create_table "airports", :force => true do |t|
@@ -28,30 +27,28 @@ ActiveRecord::Schema.define(:version => 20130925215616) do
     t.string   "city"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "airlin_id"
   end
 
   create_table "flights", :force => true do |t|
     t.string   "from"
     t.string   "to"
-    t.date     "leaves"
-    t.date     "arrives"
+    t.datetime "leaves"
+    t.datetime "arrives"
     t.boolean  "full"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "leg_id"
+    t.integer  "airlin_id"
   end
 
   create_table "legs", :force => true do |t|
     t.string   "from"
     t.string   "to"
-    t.date     "leaves"
-    t.date     "arrives"
     t.boolean  "full"
     t.integer  "next"
     t.integer  "prev"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "flight_id"
   end
 
   create_table "planes", :force => true do |t|
@@ -67,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130925215616) do
     t.float    "lng"
     t.float    "vx"
     t.float    "vy"
+    t.integer  "airlin_id"
   end
 
 end

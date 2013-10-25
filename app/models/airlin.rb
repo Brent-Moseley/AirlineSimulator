@@ -13,4 +13,5 @@ class Airlin < ActiveRecord::Base
   attr_accessible :balance, :name
   has_many :planes
   has_many :flights
+  belongs_to :airport
 end

@@ -15,5 +15,6 @@
 #
 
 class Leg < ActiveRecord::Base
-  attr_accessible :arrives, :from, :full, :leaves, :next, :prev, :to
+  attr_accessible :from, :full, :next, :prev, :to, :flight_id
+  belongs_to :flight
 end

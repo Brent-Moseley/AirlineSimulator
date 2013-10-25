@@ -12,4 +12,5 @@
 
 class Airport < ActiveRecord::Base
   attr_accessible :abbrev, :city, :name
+  has_many :airlin
 end
