@@ -16,37 +16,43 @@
    %h1
       Flights
    
-   %table{class: "table table-striped"}
+   %table{class: "header table table-striped"}
       %thead
          %tr
             %th
-               From
+               Flight
             %th
-               To
+               Times
             %th
-               Leaves
-            %th
-               Arrives
-            %th
-               Full?
+               Seats Available?
             %th
                Price
       %tbody
       - @flights.each do |flight|
-         %tr{"data-toggle" => "collapse", "data-target" => ".legs#{flight.id}"}
-            %td=flight.from
-            %td=flight.to
-            %td=flight.leaves.strftime('%b %e, %l:%M %p')
-            %td=flight.arrives.strftime('%b %e, %l:%M %p')
-            %td=flight.full
+         %tr{:class => "bold", "data-toggle" => "collapse", "data-target" => ".legs#{flight.id}"}
+            %td="#{flight.from} to #{flight.to}"
+            /%td=flight.to
+            %td
+               ="Takeoff: #{flight.leaves.strftime('%b %e, %l:%M %p')}"
+               %br
+               ="Arrival: #{flight.arrives.strftime('%b %e, %l:%M %p')}"
+               %hr{:style => "margin: 3px"}
+               -flight.legs.each.with_index do |leg, i|
+                  .normal
+                     - if flight.legs.all.length > 1
+                        ="#{i+1}. #{leg.from} to #{leg.to}, #{leg.full ? 'closed' : 'open'}"
+                     - else   
+                        ="#{leg.from} to #{leg.to}, #{leg.full ? 'closed' : 'open'}"
+                  /%br
+
+            %td{:style => "padding-left: 60px"}
+               =!flight.full
             %td
                $125.00
             / Just do a modal for the list of legs on each flight
-            / -flight.legs.each do |leg|
-            /    %tr{:class => "legs#{flight.id} collapse in leg_row"}
-            /       %td=leg.from
-            /       %td=leg.to
-            /       %td=leg.full
+            / Make each row an anchor which brings up modal containing the legs on that flight
+            /
+
 
 
 
